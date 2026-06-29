@@ -1,10 +1,29 @@
+import { Link } from "react-router-dom";
+
 function PassphraseGenerator() {
   return (
-    <div>
-      <h1>Passphrase Generator</h1>
+    <main>
 
-      <p>Create secure passphrases.</p>
-    </div>
+      <Link
+        to="/"
+        style={{
+          color:"#60a5fa",
+          textDecoration:"none",
+          fontSize:"18px"
+        }}
+      >
+        ← Back
+      </Link>
+
+      <h1 style={{marginTop:"30px"}}>
+        Passphrase Generator
+      </h1>
+
+      <p>
+        Create memorable and secure passphrases.
+      </p>
+
+    </main>
   );
 }
 

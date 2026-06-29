@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+import Navbar from "./components/Navbar";
+
 import Home from "./pages/Home";
 import PasswordGenerator from "./pages/PasswordGenerator";
 import StrengthChecker from "./pages/StrengthChecker";
@@ -9,6 +11,9 @@ import About from "./pages/About";
 function App() {
   return (
     <BrowserRouter>
+
+      <Navbar />
+
       <Routes>
 
         <Route path="/" element={<Home />} />
@@ -34,6 +39,7 @@ function App() {
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
