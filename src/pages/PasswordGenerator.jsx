@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { generatePassword } from "../utils/passwordGenerator";
 
 function PasswordGenerator() {
 
@@ -14,6 +15,26 @@ function PasswordGenerator() {
   const [numbers, setNumbers] = useState(true);
 
   const [symbols, setSymbols] = useState(true);
+
+  const handleGenerate = () => {
+
+  const newPassword = generatePassword(
+
+    length,
+
+    uppercase,
+
+    lowercase,
+
+    numbers,
+
+    symbols
+
+  );
+
+  setPassword(newPassword);
+
+};
 
   return (
     <main>
@@ -36,6 +57,7 @@ function PasswordGenerator() {
         <input
           type="text"
           value={password}
+          placeholder="Click 'Generate Password'"
           readOnly
           className="password-input"
         />
@@ -116,9 +138,11 @@ function PasswordGenerator() {
 
         </div>
 
-        <button>
+        <button
 
-          Generate Password
+          onClick={handleGenerate}
+        >
+          🔑 Generate Password
 
         </button>
 
