@@ -7,7 +7,7 @@ function Home() {
 
       <section className="hero">
 
-        <h1>🔐 Password Lab</h1>
+        <h1>🔐Password Lab</h1>
 
         <p>
           Generate secure passwords, analyze their strength
