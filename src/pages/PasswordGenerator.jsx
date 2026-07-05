@@ -6,6 +6,8 @@ function PasswordGenerator() {
 
   const [password, setPassword] = useState("");
 
+  const [copied, setCopied] = useState(false);
+
   const [length, setLength] = useState(16);
 
   const [uppercase, setUppercase] = useState(true);
@@ -17,24 +19,32 @@ function PasswordGenerator() {
   const [symbols, setSymbols] = useState(true);
 
   const handleGenerate = () => {
+    const newPassword = generatePassword(
 
-  const newPassword = generatePassword(
-
-    length,
-
-    uppercase,
-
-    lowercase,
-
-    numbers,
-
-    symbols
-
-  );
+      length,
+      uppercase,
+      lowercase,
+      numbers,
+      symbols
+    );
 
   setPassword(newPassword);
+  };
 
-};
+  const handleCopy = () => {
+    if (!password) return;
+    
+    navigator.clipboard.writeText(password);
+    
+    setCopied(true);
+    
+    setTimeout(() => {
+      
+      setCopied(false);
+    
+    }, 2000);
+  
+  };
 
   return (
     <main>
@@ -54,13 +64,25 @@ function PasswordGenerator() {
           Generate secure and customizable passwords.
         </p>
 
-        <input
-          type="text"
-          value={password}
-          placeholder="Click 'Generate Password'"
-          readOnly
-          className="password-input"
-        />
+        <div className="password-box">
+
+          <input
+            type="text"
+            value={password}
+            placeholder="Click 'Generate Password'"
+            readOnly
+            className="password-input"
+          />
+
+          <button
+            className="copy-button"
+            onClick={handleCopy}
+            title="copy password"
+          >
+            {copied ? "✅" : "📋"}
+          </button>
+
+        </div>
 
         <div className="length-container">
 
